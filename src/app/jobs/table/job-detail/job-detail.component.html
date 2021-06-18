@@ -1,0 +1,24 @@
+<div *ngIf="details">
+    <div class="modal-header">
+        <h4 class="modal-title"># {{ details.jobId }} - {{ details.title}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+            </button>
+    </div>
+    <div class="modal-body">
+        <p>Posted Date: {{ details.postedDate | date:'MM/dd/yy'}}</p>
+        <p>Grade: {{ details.targetLevel }}</p>
+        <p>Hiring Manager: {{ details.hiringManager_id?.name }}</p>
+        <p>Recruiter: {{ details.primaryRecruiter_id?.name }}</p>
+        Location:
+            <ul>
+                <li *ngFor="let location of details.multi_location">{{ location }}</li>
+            </ul>
+        <u>Description:</u><br><div [innerHTML]="details.description"></div><hr>
+        <u>Qualifications:</u><br><div [innerHTML]="details.jobQualifications"></div><hr>
+        <u>Responsibilties:</u><br><div [innerHTML]="details.jobResponsibilities"></div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+    </div>
+</div>

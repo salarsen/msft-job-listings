@@ -1,0 +1,20 @@
+<p>Contact List</p>
+
+<table>
+    <thead>
+        <th>Email</th>
+        <th>Name</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let contact of contacts">
+            <!-- <form (submit)='onSubmit($event, form) || form.reset()' #form='ngForm'> -->
+                <td>{{ contact.email }}</td>
+                <td>
+                    <input type="text" name="contactName" #myInput placeholder="Recruiter Name...">
+                    
+                <button (click)='onSubmit(contact._id, myInput.value)'>Update</button>
+                </td>
+            <!-- </form> -->
+        </tr>
+    </tbody>
+</table>
